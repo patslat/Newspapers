@@ -1,0 +1,18 @@
+<h1>New Subscription Plan:</h1>
+<form action="<%= newspaper_subscription_plans_url %>" method="post">
+
+  <label for="price">Price:</label>
+  <input type="number"
+    step=".01"
+    min="0"
+    name="subscription_plan[price]"
+    id="price">
+
+  <label for="daily">Daily</label>
+  <input type="radio" name="subscription_plan[daily]" value="true" id="daily">
+
+  <label for="weekly">Weekly</label>
+  <input type="radio" name="subscription_plan[daily]" value="false" id="weekly">
+
+  <input type="submit" value="Create Subscription Plan">
+</form>

@@ -1,0 +1,24 @@
+<form action="<%= users_url %>" method="post">
+  <label for="name">Username:</label>
+  <input type="text" name="user[name]" id="name">
+
+  <label for="password">Password:</label>
+  <input type="password" name="user[password]" id="password">
+
+  <input type="submit" value="Sign Up">
+
+
+  <h3>Subscription Plans</h3>
+  <% @newspapers.each_with_index do |newspaper| %>
+  <%= render newspaper %>
+  <select name="user[subscription_plan_ids][]">
+    <option></option>
+    <% newspaper.subscription_plans.each do |subscription_plan| %>
+    <option value="<%= subscription_plan.id %>">
+      <%= subscription_plan.daily ? "Daily" : "Weekly" %>
+      - $<%= subscription_plan.price %>
+    </option>
+    <% end %>
+  </select>
+  <% end %>
+</form>
